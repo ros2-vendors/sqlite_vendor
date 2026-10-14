@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-model
+  href="http://download.ros.org/schema/package_format2.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>sqlite_vendor</name>
+  <version>0.1.0</version>
+  <description>
+    Builds the SQLite3 C library (version 3.46.1) from the upstream amalgamation,
+    patched for VxWorks, so rosbag2_storage_sqlite3 can find_package(SQLite3) and
+    link SQLite::SQLite3. VxWorks has no system libsqlite3-dev and the
+    raspberrypi4b SDK ships no SQLite3 in its sysroot; 3.46.1 matches Ubuntu 26.04
+    (resolute) libsqlite3-0. The VxWorks source patches are delivered via the layer
+    (patches/sqlite_vendor/usr_src) and applied on top of the fetched source.
+  </description>
+  <maintainer email="Andrei.Kholodnyi@gmail.com">Andrei Kholodnyi</maintainer>
+  <license>Apache License 2.0</license> <!-- the contents of this package are Apache 2.0 -->
+  <license>blessing</license>           <!-- SQLite is public domain -->
+
+  <url type="repository">https://www.sqlite.org</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>git</buildtool_depend>
+
+  <depend>libsqlite3-dev</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
