@@ -84,8 +84,8 @@ macro(build_sqlite)
         --disable-readline
         CC=${CMAKE_C_COMPILER}
         "CFLAGS=${_sqlite_cflags}"
-    BUILD_COMMAND make -j
-    INSTALL_COMMAND make install
+    BUILD_COMMAND make -j libsqlite3.la
+    INSTALL_COMMAND make install-libLTLIBRARIES install-includeHEADERS install-pkgconfigDATA
     BUILD_IN_SOURCE 0
   )
 
